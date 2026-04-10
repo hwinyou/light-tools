@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>轻图工具 - 图片压缩</title>
+    <style>
+        body { font-family: Arial; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .upload-box { border: 2px dashed #ccc; padding: 40px; text-align: center; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>轻图工具</h1>
+    <form action="/compress" method="post" enctype="multipart/form-data">
+        <div class="upload-box">
+            <input type="file" name="image" accept="image/*" required>
+            <p>选择图片</p>
+        </div>
+        <p>压缩质量: <input type="range" name="quality" min="10" max="95" value="85"> <span id="qval">85</span>%</p>
+        <button type="submit">开始压缩</button>
+    </form>
+    <script>
+        document.querySelector('input[name=quality]').oninput = function() {
+            document.getElementById('qval').textContent = this.value;
+        }
+    </script>
+</body>
+</html>
